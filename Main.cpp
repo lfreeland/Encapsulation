@@ -30,6 +30,4 @@ int main()
 	MiddleSchoolStudent middleschoolStudent("steve", "jobs");
 
 	std::cout << middleschoolStudent.sendEmail("Middle School Student email").message << std::endl;
-
-	std::cout << std::endl;
 }
