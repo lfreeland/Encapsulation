@@ -6,19 +6,19 @@ class MiddleSchoolStudent : public Student
 
 public:
 	MiddleSchoolStudent();
-	MiddleSchoolStudent(std::string first, std::string last);
+	MiddleSchoolStudent(string firstName, string lastName);
 	~MiddleSchoolStudent();
 
-	Result sendEmail(std::string text) override;
+	Result sendEmail(string body) override;
 
-	std::string getTwitterURL();
-	void setTwitterURL(std::string newTwitterURL);
+	string getTwitterURL();
+	void setTwitterURL(string newTwitterURL);
 
-	std::string getFacebookURL();
-	void setFacebookURL(std::string newFacebookURL);
+	string getFacebookURL();
+	void setFacebookURL(string newFacebookURL);
 
 private:
 	
-	std::string twitterURL;
-	std::string facebookURL;
+	string twitterURL;
+	string facebookURL;
 };

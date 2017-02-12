@@ -6,7 +6,7 @@ Student::Student()
 {
 }
 
-Student::Student(std::string first, std::string last)
+Student::Student(string first, string last)
 {
 	//can put checks here to detect for invalid names and throw an exception if error is found
 	firstName = first;
@@ -17,22 +17,22 @@ Student::~Student()
 {
 }
 
-std::string Student::getEmail()
+string Student::getEmail()
 {
-	std::string first6CharactersOfFirstName = getFirstName().substr(0, 6);
-	std::string first5CharactersOfLastName = getLastName().substr(0, 5);
+	string first6CharactersOfFirstName = getFirstName().substr(0, 6);
+	string first5CharactersOfLastName = getLastName().substr(0, 5);
 
-	std::string email = first5CharactersOfLastName + first6CharactersOfFirstName + EMAIL_ENDING;
+	string email = first5CharactersOfLastName + first6CharactersOfFirstName + EMAIL_ENDING;
 
 	return email;
 }
 
-std::string Student::getFirstName()
+string Student::getFirstName()
 {
 	return firstName;
 }
 
-std::string Student::getLastName()
+string Student::getLastName()
 {
 	return lastName;
 }
@@ -58,7 +58,7 @@ void Student::setGrade(Grade g)
 	grade = g;
 }
 
-Result Student::sendEmail(std::string text)
+Result Student::sendEmail(string text)
 {
 	
 	Result emailStatus;
@@ -84,7 +84,7 @@ Result Student::sendEmail(std::string text)
 Result Student::isUserValid()
 {
 	Result result;
-	std::string email = getEmail();
+	string email = getEmail();
 	
 	if (email.size() < 3)
 	{

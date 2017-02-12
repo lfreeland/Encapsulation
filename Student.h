@@ -1,5 +1,8 @@
 #pragma once
 #include <string>
+#include "stdafx.h"
+
+using namespace std;
 
 #define currentYear 2017
 
@@ -10,37 +13,37 @@ enum Grade {
 
 struct Result {
 	bool success = true;
-	std::string message;
+	string message;
 };
 
 class Student
 {
 public:
 	//school's email ending
-	const std::string EMAIL_ENDING = "@example.com";
+	const string EMAIL_ENDING = "@example.com";
 
 	Student();
-	Student(std::string first, std::string last);
+	Student(string first, string last);
 	~Student();
 		
 	//if email is empty, fill based on first and last name
-	virtual std::string getEmail();											
-	std::string getFirstName();									
-	std::string getLastName();										
+	virtual string getEmail();											
+	string getFirstName();									
+	string getLastName();										
 	//if year of graduation is empty, fill based on current year and year of graduation
 	int getYearOfGraduation();										
 	Grade getGrade();												
 	void setGrade(Grade g);											
 	//sends email and returns the result of the email
-	virtual Result sendEmail(std::string text);
+	virtual Result sendEmail(string text);
 
 protected:
 	//checks to make sure student is fully filled and returns the result of the check
 	virtual Result isUserValid();
 
 private:
-	std::string firstName;
-	std::string lastName;
+	string firstName;
+	string lastName;
 
 	Grade grade = Undefined;
 };
