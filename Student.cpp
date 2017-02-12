@@ -58,7 +58,7 @@ void Student::setGrade(Grade g)
 	grade = g;
 }
 
-Result Student::sendEmail(string text)
+Result Student::sendEmail(string body)
 {
 	
 	Result emailStatus;
@@ -72,7 +72,7 @@ Result Student::sendEmail(string text)
 	std::cout << "Send To - " << getEmail() << "\n";
 	std::cout << "Name - " << getFirstName() << " " << getLastName() << "\n";
 	std::cout << "YOG - " << getYearOfGraduation() << "\n\n";
-	std::cout << text << "\n";
+	std::cout << body << "\n";
 	std::cout << "--------------------------------\n";
 
 	emailStatus.message = "Email Has Been Sent";

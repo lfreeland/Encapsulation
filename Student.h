@@ -27,15 +27,19 @@ public:
 	~Student();
 		
 	//if email is empty, fill based on first and last name
-	virtual string getEmail();											
-	string getFirstName();									
-	string getLastName();										
+	virtual string getEmail();	
+
+	string getFirstName();							
+	string getLastName();
+
 	//if year of graduation is empty, fill based on current year and year of graduation
 	int getYearOfGraduation();										
+
 	Grade getGrade();												
 	void setGrade(Grade g);											
+
 	//sends email and returns the result of the email
-	virtual Result sendEmail(string text);
+	virtual Result sendEmail(string body);
 
 protected:
 	//checks to make sure student is fully filled and returns the result of the check

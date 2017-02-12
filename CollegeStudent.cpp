@@ -6,8 +6,8 @@ CollegeStudent::CollegeStudent()
 	setGrade(College);
 }
 
-CollegeStudent::CollegeStudent(std::string first, std::string last)
-	:Student(first, last)
+CollegeStudent::CollegeStudent(string firstName, string lastName)
+	:Student(firstName, lastName)
 {
 	setGrade(College);
 }
@@ -16,27 +16,29 @@ CollegeStudent::~CollegeStudent()
 {
 }
 
-std::string CollegeStudent::getEmail()
+string CollegeStudent::getEmail()
 {
-	std::string first2CharactersOfFirstName = getFirstName().substr(0, 2);
+	string first2CharactersOfFirstName = getFirstName().substr(0, 2);
 
-	std::string email = getLastName() + first2CharactersOfFirstName + EMAIL_ENDING;
+	string email = getLastName() + first2CharactersOfFirstName + EMAIL_ENDING;
 
 	return email;
 }
 
 Result CollegeStudent::isUserValid()
 {
+	// Call the base Student's isUserValid to invoke its
+	// validation logic.
 	Result userValidResult = Student::isUserValid();
 
 	// The base Student validation failed so stop immediately
-	// let the caller know.
+	// and let the caller know.
 	if (userValidResult.success == false)
 	{
 		return userValidResult;
 	}
 
-	std::string firstName = getFirstName();
+	string firstName = getFirstName();
 
 	if (firstName.empty())
 	{
@@ -46,7 +48,7 @@ Result CollegeStudent::isUserValid()
 		return userValidResult;
 	}
 
-	std::string lastName = getLastName();
+	string lastName = getLastName();
 
 	if (lastName.empty())
 	{

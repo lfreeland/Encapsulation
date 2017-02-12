@@ -6,10 +6,10 @@ class CollegeStudent : public Student
 
 public:
 	CollegeStudent();
-	CollegeStudent(std::string first, std::string last);
+	CollegeStudent(string firstName, string lastName);
 	~CollegeStudent();
 
-	std::string getEmail() override;
+	string getEmail() override;
 
 protected:
 	//checks to make sure student is fully filled and returns the result of the check
