@@ -1,5 +1,6 @@
 #include "Student.h"
 #include <iostream>
+#include "stdafx.h"
 
 Student::Student()
 {
@@ -18,35 +19,10 @@ Student::~Student()
 
 std::string Student::getEmail()
 {
-	if (email.size() != 0)
-	{
-		return email;
-	}
+	std::string first6CharactersOfFirstName = getFirstName().substr(0, 6);
+	std::string first5CharactersOfLastName = getLastName().substr(0, 5);
 
-	int x{ 0 };
-	while (x < 5)
-	{
-		if (lastName[x] == '\0')
-			break;
-		
-		email.push_back(lastName[x]);
-		x++;
-	}
-	
-	int i = 0;
-	while (x < 6)
-	{
-		if (firstName[i] == '\0')
-			break;
-		
-		email.push_back(firstName[i]);
-		x++;
-		i++;
-	}
-	for (int i = 0; i < emailEnding.size(); i++)
-	{
-		email.push_back(emailEnding[i]);
-	}
+	std::string email = first5CharactersOfLastName + first6CharactersOfFirstName + EMAIL_ENDING;
 
 	return email;
 }
@@ -94,9 +70,9 @@ Result Student::sendEmail(std::string text)
 	}
 
 	std::cout << "--------------------------------\n";
-	std::cout << "Send To - " << email << "\n";
-	std::cout << "Name - " << firstName << " " << lastName << "\n";
-	std::cout << "YOG - " << yog << "\n\n";
+	std::cout << "Send To - " << getEmail() << "\n";
+	std::cout << "Name - " << getFirstName() << " " << getLastName() << "\n";
+	std::cout << "YOG - " << getYearOfGraduation() << "\n\n";
 	std::cout << text << "\n";
 	std::cout << "--------------------------------\n";
 
@@ -109,21 +85,30 @@ Result Student::sendEmail(std::string text)
 Result Student::isUserValid()
 {
 	Result result;
+	std::string email = getEmail();
 	
 	if (email.size() < 3)
 	{
 		result.success = false;
 		result.message = "Invalid Email";
+
+		return result;
 	}
+
 	if (grade == Undefined)
 	{
 		result.success = false;
-		result.message = "Invalid Grade";
+		result.message = "The grade is undefined. Please set which grade the student is in.";
+
+		return result;
 	}
+
 	if (yog == 0)
 	{
 		result.success = false;
 		result.message = "Invalid Year Of Graduation";
+
+		return result;
 	}
 	//...
 	
