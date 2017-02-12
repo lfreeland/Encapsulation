@@ -1,6 +1,7 @@
 #include "Student.h"
 #include <iostream>
 #include "stdafx.h"
+#include "atltime.h"
 
 Student::Student()
 {
@@ -41,6 +42,9 @@ int Student::getYearOfGraduation()
 {
 	if (grade != Undefined)
 	{
+		CTime t1 = CTime::GetCurrentTime();
+		int currentYear = t1.GetYear();
+
 		return currentYear + grade;
 	}
 
@@ -60,7 +64,6 @@ void Student::setGrade(Grade g)
 
 Result Student::sendEmail(string body)
 {
-	
 	Result emailStatus;
 	emailStatus = isUserValid();
 	if (!emailStatus.success)
@@ -78,7 +81,6 @@ Result Student::sendEmail(string body)
 	emailStatus.message = "Email Has Been Sent";
 	
 	return emailStatus;
-
 }
 
 Result Student::isUserValid()

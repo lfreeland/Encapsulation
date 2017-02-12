@@ -4,8 +4,6 @@
 
 using namespace std;
 
-#define currentYear 2017
-
 //to be added to current year to find yog
 enum Grade {														
 	Undefined = 0, Senior = 1, Junior = 2, sophomore = 3, Freshman = 4, Middle = 5, College = 6
