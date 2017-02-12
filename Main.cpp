@@ -21,9 +21,11 @@ int main()
 	//sends email and prints out the message result
 	std::cout << person.sendEmail("Your books are late!").message << std::endl;
 
+
 	CollegeStudent collegeStudent("steve", "jobs");
 
 	std::cout << collegeStudent.sendEmail("College Student email").message << std::endl;
+
 
 	MiddleSchoolStudent middleschoolStudent("steve", "jobs");
 

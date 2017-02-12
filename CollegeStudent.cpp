@@ -7,8 +7,8 @@ CollegeStudent::CollegeStudent()
 }
 
 CollegeStudent::CollegeStudent(std::string first, std::string last)
+	:Student(first, last)
 {
-	Student(first, last);
 	setGrade(College);
 }
 

@@ -43,5 +43,4 @@ private:
 	std::string lastName;
 
 	Grade grade = Undefined;
-	int yog = 0;
 };

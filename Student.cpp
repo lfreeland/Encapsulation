@@ -41,11 +41,10 @@ int Student::getYearOfGraduation()
 {
 	if (grade != Undefined)
 	{
-		yog = currentYear + grade;
-		return yog;
+		return currentYear + grade;
 	}
 
-	return yog;
+	return 0;
 
 }
 
@@ -95,7 +94,7 @@ Result Student::isUserValid()
 		return result;
 	}
 
-	if (grade == Undefined)
+	if (getGrade() == Undefined)
 	{
 		result.success = false;
 		result.message = "The grade is undefined. Please set which grade the student is in.";
@@ -103,7 +102,7 @@ Result Student::isUserValid()
 		return result;
 	}
 
-	if (yog == 0)
+	if (getYearOfGraduation() == 0)
 	{
 		result.success = false;
 		result.message = "Invalid Year Of Graduation";
